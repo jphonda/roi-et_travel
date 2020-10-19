@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashBroadController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\connectDB;
@@ -39,9 +41,24 @@ Route::get('/status/{id}', [FrontendController::class , '__selects']);
 
 //admin
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin', [DashBroadController::class, 'index'])->name('dashboard');
+// user
 Route::middleware(['auth:sanctum', 'verified'])->get('/manage-user', [UserController::class, 'index'])->name('manage-user');
 Route::middleware(['auth:sanctum', 'verified'])->post('/add-user', [UserController::class, 'store'])->name('add-user');
 Route::middleware(['auth:sanctum', 'verified'])->put('/del-user/{id}', [UserController::class, 'destroy'])->name('del-user');
+
+// news
+Route::middleware(['auth:sanctum', 'verified'])->get('/add-news', [NewsController::class, 'create'])->name('add-news');
+Route::middleware(['auth:sanctum', 'verified'])->get('/news', [NewsController::class, 'index'])->name('news');
+Route::middleware(['auth:sanctum', 'verified'])->get('/edit-news/{id}', [NewsController::class, 'edit'])->name('edit-news');
+Route::middleware(['auth:sanctum', 'verified'])->get('/del-news/{id}', [NewsController::class, 'destroy'])->name('del-news');
+Route::middleware(['auth:sanctum', 'verified'])->post('/insert-news', [NewsController::class, 'store'])->name('insert-news');
+Route::middleware(['auth:sanctum', 'verified'])->put('/update-news/{id}', [NewsController::class, 'update'])->name('update-news');
+
+// gallery
+Route::middleware(['auth:sanctum', 'verified'])->get('/gallerys', [GalleryController::class, 'index'])->name('gallerys');
+Route::middleware(['auth:sanctum', 'verified'])->get('/add-gallerys', [GalleryController::class, 'create'])->name('add-gallerys');
+Route::middleware(['auth:sanctum', 'verified'])->post('/insert-gallerys', [GalleryController::class, 'store'])->name('insert-gallerys');
+Route::middleware(['auth:sanctum', 'verified'])->get('/del-gallerys/{id}', [GalleryController::class, 'destroy'])->name('del-gallerys');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin/dashboard', function () {
     $score = 0;    

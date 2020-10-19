@@ -60,6 +60,34 @@
       </div>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-news" aria-expanded="true" aria-controls="collapse-news">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>ข่าวสาร</span>
+      </a>
+      <div id="collapse-news" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">จัดการข้อมูล :</h6>
+          <a class="collapse-item" href="{{ route('add-news') }}">เพิ่มข่าวสาร</a>
+          <a class="collapse-item" href="{{ route('news') }}">แก้ไข / ลบ </a>
+        </div>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-gallery" aria-expanded="true" aria-controls="collapse-gallery">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Gallery</span>
+      </a>
+      <div id="collapse-gallery" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">จัดการ Gallery :</h6>
+          <a class="collapse-item" href="{{ route('add-gallerys') }}">เพิ่ม Gallerys</a>
+          <a class="collapse-item" href="{{ route('gallerys') }}">แก้ไข / ลบ </a>
+        </div>
+      </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
